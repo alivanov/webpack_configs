@@ -49,5 +49,10 @@ module.exports = {
         use: ["csv-loader"]
       }
     ]
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all"
+    }
   }
 };
