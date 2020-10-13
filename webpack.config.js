@@ -76,9 +76,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: path.resolve(__dirname, "dist"),
-              hmr: isDev,
-              reloadAll: true
+              publicPath: ""
             }
           },
           "css-loader"
@@ -90,9 +88,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: path.resolve(__dirname, "dist"),
-              hmr: isDev,
-              reloadAll: true
+              publicPath: ""
             }
           },
           "css-loader",
