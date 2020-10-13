@@ -27,6 +27,8 @@ const optimization = () => {
   return config;
 };
 
+const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
+
 module.exports = {
   context: path.resolve(__dirname, "src"),
   mode: "development",
@@ -35,19 +37,19 @@ module.exports = {
     analytics: "./analytics.js"
   },
   output: {
-    filename: "[name].[contenthash].js",
+    filename: filename("js"),
     path: path.resolve(__dirname, "dist")
   },
   resolve: {
-    extensions: [".js", ".json", ".png"],
+    extensions: [".js", ".json"],
     alias: {
-      "@models": path.resolve(__dirname, "src/models"),
-      "@": path.resolve(__dirname, "src")
+      "@models": path.resolve(__dirname, "src/models")
     }
   },
   devServer: {
     port: 4200,
-    hot: isDev
+    hot: isDev,
+    open: true
   },
   plugins: [
     new HTMLWebpackPlugin({
@@ -63,7 +65,7 @@ module.exports = {
       ]
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css"
+      filename: filename("css")
     })
   ],
   module: {
@@ -80,6 +82,21 @@ module.exports = {
             }
           },
           "css-loader"
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: path.resolve(__dirname, "dist"),
+              hmr: isDev,
+              reloadAll: true
+            }
+          },
+          "css-loader",
+          "less-loader"
         ]
       },
       {
