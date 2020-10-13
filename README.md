@@ -1,3 +1,3 @@
 # webpack_configs
 
-Playing with webpack config
+Playing with webpack 5.0 config

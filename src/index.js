@@ -10,6 +10,8 @@ import csv from "./assets/data.csv";
 import Avatar from "./assets/avatar.png";
 import * as $ from "jquery";
 
+import "./babel";
+
 const post = new Post("Webpack post title!", Avatar);
 
 console.log("Post to string: " + post.toString());
