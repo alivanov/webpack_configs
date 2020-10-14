@@ -9,3 +9,5 @@ class Util {
 }
 
 console.log("Util static id:", Util.id);
+
+const unusedVar = 42;

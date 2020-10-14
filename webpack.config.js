@@ -60,6 +60,21 @@ const babelOptions = (preset) => {
   return options;
 };
 
+const jsLoaders = () => {
+  const loaders = [
+    {
+      loader: "babel-loader",
+      options: babelOptions("@babel/preset-react")
+    }
+  ];
+
+  if (isDev) {
+    loaders.push("eslint-loader");
+  }
+
+  return loaders;
+};
+
 module.exports = {
   context: path.resolve(__dirname, "src"),
   mode: "development",
@@ -149,10 +164,7 @@ module.exports = {
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: babelOptions("@babel/preset-react")
-        }
+        use: jsLoaders()
       }
     ]
   },
