@@ -28,12 +28,12 @@ console.log("CSV:", csv);
 //==================
 
 const App = () => (
-  <div class="container">
+  <div className="container">
     <h1>Open browser console for details</h1>
 
     <hr />
 
-    <div class="logo" />
+    <div className="logo" />
 
     <hr />
 
@@ -41,13 +41,13 @@ const App = () => (
 
     <hr />
 
-    <div class="box">
+    <div className="box">
       <h2>LESS!</h2>
     </div>
 
     <hr />
 
-    <div class="card">
+    <div className="card">
       <h2>SCSS!</h2>
     </div>
   </div>
