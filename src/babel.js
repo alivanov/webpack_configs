@@ -11,3 +11,7 @@ class Util {
 console.log("Util static id:", Util.id);
 
 const unusedVar = 42;
+
+import("lodash").then(() => {
+  console.log("Lodash", _.random(0, 42, true));
+});
