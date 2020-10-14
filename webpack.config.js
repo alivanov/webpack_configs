@@ -64,7 +64,7 @@ module.exports = {
   context: path.resolve(__dirname, "src"),
   mode: "development",
   entry: {
-    main: ["@babel/polyfill", "./index.js"],
+    main: ["@babel/polyfill", "./index.jsx"],
     analytics: "./analytics.ts"
   },
   output: {
@@ -143,6 +143,14 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: babelOptions("@babel/preset-typescript")
+        }
+      },
+      {
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: babelOptions("@babel/preset-react")
         }
       }
     ]
